@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>GIF Snipping Tool</title>
+    <link rel="stylesheet" type="text/css"
+        href="https://cdnjs.cloudflare.com/ajax/libs/fomantic-ui/2.7.6/semantic.min.css">
+    <script src="/eel.js"></script>
+</head>
+
+<style>
+    img {
+        width: 100%;
+        height: 600px;
+    }
+</style>
+
+<body style="background-color:#ffffff;">
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fomantic-ui/2.7.6/semantic.min.js"></script>
+    <script src="./main.js"></script>
+    <script src="./eel_functions.js"></script>
+
+    <div class="ui top attached four item menu">
+
+        <a class="activ item" id="new_btn">
+            <i class="play circle icon"></i>
+            <p>New</p>
+        </a>
+
+        <div id="mode_menu" class="ui simple dropdown icon item">
+            <div>
+                <i class="desktop icon"></i>
+                <span class="text">Mode</span>
+            </div>
+            <div class="menu" id="modus_items">
+                <!--<div id="screen" class="item">Screen<i></i></div>-->
+                <div id="window" class="item">Window<i></i></div>
+                <div id="region" class="item">Region<i class="check icon"></i></div>
+                <div id="full" class="item">Full<i></i></div>
+            </div>
+        </div>
+
+        <div id="delay_menu" class="ui simple dropdown icon item">
+            <div>
+                <i class="hourglass start icon"></i>
+                <span class="text">Delay</span>
+            </div>
+            <div class="menu" id="delay_items">
+                <div class="item" id="1_sec">1 Sec<i></i></div>
+                <div class="item" id="2_sec">2 Sec<i></i></div>
+                <div class="item" id="3_sec">3 Sec<i></i></div>
+                <div class="item" id="4_sec">4 Sec<i></i></div>
+                <div class="item" id="5_sec">5 Sec<i></i></div>
+            </div>
+        </div>
+        <div id="option_menu" class="ui simple dropdown icon item">
+            <div>
+                <i class="wrench icon"></i>
+                <span class="text">Option</span>
+            </div>
+            <div class="menu" id="option_items">
+                <div class="item" id="png_opt">PNG<i></i></div>
+                <div class="item" id="gif_opt">GIF<i class="check icon"></i></div>
+            </div>
+        </div>
+
+    </div>
+
+
+
+    <div id="img_segment">
+        <img id="preview_img">
+        <div id="cancel_selection" class="ui red deny button" style="position:fixed;right:40px;bottom:40px">
+            Cancel Selection
+        </div>
+        <div id="stop_recording" class="ui red deny big button" style="position:fixed;right:45%;bottom:50%">
+            Stop Recording
+        </div>
+    </div>
+
+    <!--Select Window Modal-->
+    <div id="window_modal" class="ui basic modal">
+        <div class="ui header">
+            Select Window
+        </div>
+        <div class="content">
+            <p>Select a Window to capture</p>
+        </div>
+        <div class="actions">
+            <div class="ui green ok inverted button">
+                <i class="checkmark icon"></i>
+                OK
+            </div>
+        </div>
+    </div>
+
+    <!--Select Wait Modal-->
+    <div id="wait_modal" class="ui basic modal">
+        <div class="ui header">
+            Saving GIF
+        </div>
+        <div class="content">
+            <p>
+                <div class="ui active centered inline loader"></div>
+            </p>
+        </div>
+    </div>
+
+    <!--Select OK Modal-->
+    <div id="ok_modal" class="ui basic modal">
+        <div class="ui header">
+            Image Saved
+        </div>
+        <div class="actions">
+            <div class="ui green ok inverted button">
+                <i class="checkmark icon"></i>
+                OK
+            </div>
+        </div>
+    </div>
+
+
+
+</body>
+
+</html>
