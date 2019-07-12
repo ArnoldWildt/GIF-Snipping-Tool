@@ -12,5 +12,5 @@ def save_img(path, image):
     x.start()
 
 
-def save_png(path, image):
+def save_png_disk(path, image):
     imageio.imwrite(path, image)

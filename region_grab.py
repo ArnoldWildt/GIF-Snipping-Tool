@@ -8,7 +8,6 @@ from save_img import save_img
 from threading import Thread
 from PyQt5 import QtWidgets
 from time import time
-from PIL import Image
 from win32gui import (
     GetWindowText,
     GetForegroundWindow,
@@ -43,11 +42,13 @@ class RegionGrab():
         # Remove Alpha channel from Image
         img = img[..., :-1]
 
+        img = img[..., ::-1]
+
         return img
 
     def preview_full(self):
         self.region = get_screen_res()
-        return self.get_img()[..., ::-1]
+        return self.get_img()
 
     def preview_region(self):
         app = QtWidgets.QApplication([''])
@@ -57,8 +58,8 @@ class RegionGrab():
 
         self.region = window.get_region()
         print(self.region)
-        
-        return self.get_img()[..., ::-1]
+
+        return self.get_img()
 
     def preview_window(self):
         current_win = get_foreground()
@@ -95,7 +96,7 @@ class RegionGrab():
 
         self.region = window_pos
 
-        return self.get_img()[..., ::-1]
+        return self.get_img()
 
     def capture_region(self):
         self.running = True

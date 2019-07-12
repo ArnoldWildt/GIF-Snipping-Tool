@@ -1,6 +1,5 @@
 import ctypes
 import ctypes.wintypes
-#import d3dshot
 from region_grab import RegionGrab
 from win32gui import (
     GetWindowText,

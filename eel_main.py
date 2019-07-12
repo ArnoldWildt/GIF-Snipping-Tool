@@ -1,9 +1,7 @@
 import eel
-import base64
 from capture import Capture
-from PIL import Image
-from io import BytesIO
-from save_img import save_img
+from save_img import save_img, save_png_disk
+from convert_img import convert_image
 import time
 import os
 
@@ -13,17 +11,6 @@ capture_instance = Capture()
 
 if not os.path.isdir("./img/"):
     os.mkdir("./img/")
-
-
-def convert_image(img):
-    buffered = BytesIO()
-
-    img = Image.fromarray(img)
-    img = img.convert("RGB")
-    img.save(buffered, format="JPEG")
-
-    img_base64 = base64.b64encode(buffered.getvalue())
-    return str(img_base64)
 
 
 def send_image(img_base64):
@@ -49,7 +36,7 @@ def save_png(mode):
         eel.set_modal_eel("show")
 
     img = capture_instance.capture_mode(mode)
-    save_img(f"{int(time.time())}.png", img[..., ::-1])
+    save_png_disk(f"{int(time.time())}.png", img[..., ::-1])
 
     eel.set_modal_eel("hide")
 
@@ -65,4 +52,4 @@ def get_preview(mode):
     eel.set_modal_eel("hide")
 
 
-eel.start('main.html', size=(1400, 800))
+eel.start('main.html', size=(1400, 720))
