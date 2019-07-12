@@ -1,6 +1,6 @@
 import ctypes
 import ctypes.wintypes
-import d3dshot
+#import d3dshot
 from region_grab import RegionGrab
 from win32gui import (
     GetWindowText,
@@ -45,8 +45,9 @@ class Capture():
 
     def screen_capture(self):
         # TODO: Select which Screen
-        d3d_window = d3dshot.create(capture_output="numpy")
-        return d3d_window.screenshot()
+        # d3d_window = d3dshot.create(capture_output="numpy")
+        # return d3d_window.screenshot()
+        pass
 
     def window_capture(self):
         self.capture_instance = RegionGrab()

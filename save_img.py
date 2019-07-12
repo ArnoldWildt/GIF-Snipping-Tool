@@ -1,9 +1,9 @@
-import cv2
+import imageio
 from threading import Thread
 
 
 def thread_save_img(path, image):
-    cv2.imwrite(path, image, params=[int(cv2.IMWRITE_JPEG_QUALITY), 40])
+    imageio.imwrite(path, image, quality=40)
 
 
 def save_img(path, image):
@@ -13,4 +13,4 @@ def save_img(path, image):
 
 
 def save_png(path, image):
-    cv2.imwrite(path, image)
+    imageio.imwrite(path, image)

@@ -1,5 +1,5 @@
 import sys
-import cv2
+# import cv2
 from screen_resolution import get_screen_res
 from PyQt5 import QtWidgets, QtCore, QtGui
 from screen_grab import grab_screen
@@ -50,7 +50,8 @@ class RegionSelector(QtWidgets.QWidget):
 
         width = abs(x1-x2)
         height = abs(y1-y2)
-        left = x1 - 1920
+        # TODO: Add Mainwindow detection subtract then to get real screen
+        left = x1 # - 1920
         top = y1
 
         self.region = [

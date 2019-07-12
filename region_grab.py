@@ -56,7 +56,8 @@ class RegionGrab():
         app.exec_()
 
         self.region = window.get_region()
-
+        print(self.region)
+        
         return self.get_img()[..., ::-1]
 
     def preview_window(self):

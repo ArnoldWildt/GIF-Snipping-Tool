@@ -5,10 +5,14 @@ from PIL import Image
 from io import BytesIO
 from save_img import save_img
 import time
+import os
 
 eel.init('web')
 
 capture_instance = Capture()
+
+if not os.path.isdir("./img/"):
+    os.mkdir("./img/")
 
 
 def convert_image(img):
@@ -61,4 +65,4 @@ def get_preview(mode):
     eel.set_modal_eel("hide")
 
 
-eel.start('main.html')
+eel.start('main.html', size=(1400, 800))
