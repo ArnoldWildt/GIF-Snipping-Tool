@@ -50,4 +50,11 @@ def get_preview(mode):
     eel.set_modal_eel("hide")
 
 
-eel.start('main.html', size=(1400, 720))
+start_options = {
+    'mode': "chrome-app",  # or "chrome-app",
+    'host': 'localhost',
+    'host': '127.0.0.1',
+    'port': 8081
+}
+
+eel.start('gif_snip.html', options=start_options, size=(1400, 720))
