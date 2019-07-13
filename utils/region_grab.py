@@ -1,10 +1,10 @@
 import ctypes
 import ctypes.wintypes
 import numpy as np
-from screen_resolution import get_screen_res
-from region_selector import RegionSelector
-from screen_grab import grab_screen
-from save_img import save_img
+from .screen_resolution import get_screen_res
+from .region_selector import RegionSelector
+from .screen_grab import grab_screen
+from .save_img import save_img
 from threading import Thread
 from PyQt5 import QtWidgets
 from time import time

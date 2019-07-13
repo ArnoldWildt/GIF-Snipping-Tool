@@ -1,6 +1,6 @@
 import ctypes
 import ctypes.wintypes
-from region_grab import RegionGrab
+from .region_grab import RegionGrab
 from win32gui import (
     GetWindowText,
     GetForegroundWindow,

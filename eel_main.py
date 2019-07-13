@@ -1,13 +1,11 @@
 import eel
-from capture import Capture
-from save_img import save_img, save_png_disk
-from convert_img import convert_image
+import utils
 import time
 import os
 
 eel.init('web')
 
-capture_instance = Capture()
+capture_instance = utils.Capture()
 
 if not os.path.isdir("./img/"):
     os.mkdir("./img/")
@@ -36,7 +34,7 @@ def save_png(mode):
         eel.set_modal_eel("show")
 
     img = capture_instance.capture_mode(mode)
-    save_png_disk(f"{int(time.time())}.png", img[..., ::-1])
+    utils.save_png_disk(f"{int(time.time())}.png", img[..., ::-1])
 
     eel.set_modal_eel("hide")
 
@@ -47,7 +45,7 @@ def get_preview(mode):
         eel.set_modal_eel("show")
 
     img = capture_instance.capture_mode(mode)
-    send_image(convert_image(img))
+    send_image(utils.convert_image(img))
 
     eel.set_modal_eel("hide")
 
